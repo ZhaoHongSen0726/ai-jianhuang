@@ -1,39 +1,14 @@
-# AI鉴黄
+# 前言 在假期的时候就想要做一个AI鉴黄过滤的小应用，说是鉴黄，后期会开发更多的功能，先在电脑上开发，效果后，后期在考虑移植到手机上。
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+项目概述
+想的是在用户打开一个网站的时候，会先进行定向性的过滤，文本和图像可能都会用到吧，像有些钓鱼网站和黄色网站我都会先过滤一遍的。这个后期再说。
 
-#### 软件架构
-软件架构说明
+具体思路是：先得到用户想要访问的网站，然后先访问这个网站，进行信息获取，之后进行模型推理，然后做出反应。大概的流程就是这样:
 
-
-#### 安装教程
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+flowchat
+st=>start: 获取网站
+e=>end: 做出反应
+op=>operation: 提取信息进行模型推理
+st->op->e
+获取网站信息流程概述
+这里面就是要用到爬虫技术和浏览器自动化那些了。还有就是要制作一个gui，这个页面来获取想要搜索的内容，然后去调用谷歌或者火狐浏览器（这时用一个自动化调出那个页面），在页面显示的前一步进行过滤。但是这有个问题就是在我们这个调用的浏览器里，用户的操作信息都会返回，然后对想要访问的页面在进行推理。 请添加图片描述
